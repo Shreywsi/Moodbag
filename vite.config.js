@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/Moodbag/',   
   server: {
     port: 5173,
-    strictPort: true, // ← this forces it to ALWAYS use 5173, never increment
+    strictPort: true,
   }
 })
