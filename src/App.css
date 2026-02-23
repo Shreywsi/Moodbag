@@ -1,0 +1,488 @@
+/* ─── GLOBAL ─────────────────────────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ─── BACKGROUND & CONTAINER ─────────────────────────────────────────────── */
+
+.bg {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background: #0e0b0b;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px 80px;
+  font-family: 'Georgia', serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 680px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── HEADER ─────────────────────────────────────────────────────────────── */
+
+.header {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: #6b5a4e;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: clamp(42px, 10vw, 72px);
+  font-weight: 400;
+  color: #e8d5c0;
+  letter-spacing: 0.15em;
+  margin: 0 0 8px;
+  line-height: 1;
+}
+
+.subtitle {
+  color: #7a6a60;
+  font-size: 15px;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.ml-badge {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #4a3a2a;
+  margin-bottom: 18px;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, #3d2e28, transparent);
+}
+
+/* ─── LOADING ─────────────────────────────────────────────────────────────── */
+
+.loading-wrap {
+  margin-top: 48px;
+}
+
+.loading-track {
+  width: 100%;
+  height: 2px;
+  background: #1f1510;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loading-bar {
+  height: 100%;
+  background: linear-gradient(to right, #4a2e1a, #c9a070);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.loading-subtext {
+  color: #3a2820;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+/* ─── INPUT SECTION ──────────────────────────────────────────────────────── */
+
+.input-section {
+  margin-top: 28px;
+}
+
+.fleabag-textarea {
+  width: 100%;
+  background: #1a1210;
+  border: 1px solid #3d2e28;
+  border-radius: 4px;
+  color: #c9b8a8;
+  font-family: 'Georgia', serif;
+  font-size: 15px;
+  line-height: 1.8;
+  padding: 20px;
+  resize: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.fleabag-textarea::placeholder {
+  color: #3a2820;
+}
+
+.fleabag-textarea:focus {
+  border-color: #5a3e30;
+}
+
+.error-msg {
+  color: #c46060;
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.hint {
+  color: #4a3830;
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+/* ─── BUTTONS ─────────────────────────────────────────────────────────────── */
+
+.btn {
+  background: transparent;
+  border: 1px solid #8b6a50;
+  color: #c9a070;
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  padding: 13px 28px;
+  cursor: pointer;
+  border-radius: 2px;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: #1f1410;
+  border-color: #c9a070;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.btn-reset {
+  background: transparent;
+  border: none;
+  color: #5a4a40;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-top: 20px;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.btn-reset:hover {
+  color: #8a7a6a;
+}
+
+/* ─── AI MESSAGE CARD ────────────────────────────────────────────────────── */
+
+.result-fade-in {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.message-card {
+  background: #160f0c;
+  border: 1px solid #2e2018;
+  border-radius: 4px;
+  padding: 28px 28px 22px;
+  margin-top: 28px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.quote-icon {
+  position: absolute;
+  top: 6px;
+  left: 18px;
+  font-size: 52px;
+  color: #2e1a10;
+  line-height: 1;
+}
+
+.message {
+  color: #d4b896;
+  font-size: 16px;
+  line-height: 1.85;
+  font-style: italic;
+  margin: 8px 0 0;
+}
+
+/* ─── SCENE CARD ─────────────────────────────────────────────────────────── */
+
+.scene-card {
+  border: 1px solid #3a2518;
+  border-left: 3px solid #8b6a50;
+  border-radius: 4px;
+  padding: 24px 24px 20px;
+  margin-bottom: 28px;
+  background: #120c09;
+  position: relative;
+  animation: fadeUp 0.6s ease 0.1s both;
+}
+
+.scene-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scene-label {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #6b4a2e;
+}
+
+.scene-episode-tag {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #5a4a38;
+  background: #1e1208;
+  padding: 3px 10px;
+  border-radius: 2px;
+  border: 1px solid #2e1e10;
+}
+
+.scene-title {
+  color: #c9a070;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  font-style: normal;
+}
+
+.scene-description {
+  color: #b09878;
+  font-size: 15px;
+  line-height: 1.9;
+  font-style: italic;
+  margin: 0 0 16px;
+}
+
+.scene-resonance {
+  font-size: 12px;
+  color: #5a4030;
+  border-top: 1px solid #1e1208;
+  padding-top: 12px;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.scene-resonance strong {
+  color: #8b6a4a;
+  font-style: normal;
+}
+
+/* ─── SECTION LABEL ──────────────────────────────────────────────────────── */
+
+.section-label {
+  color: #4a3830;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* ─── MOOD SCORE BARS ────────────────────────────────────────────────────── */
+
+.bars-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar-mood-label {
+  color: #7a6a5a;
+  font-size: 12px;
+  font-style: italic;
+  width: 120px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.bar-track {
+  flex: 1;
+  height: 3px;
+  background: #1f1510;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  animation: growBar 1s ease forwards;
+}
+
+.bar-pct {
+  color: #3a2820;
+  font-size: 11px;
+  width: 34px;
+  flex-shrink: 0;
+}
+
+/* ─── MOOD TAGS ──────────────────────────────────────────────────────────── */
+
+.mood-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.mood-tag {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
+  border-radius: 20px;
+  color: #fff;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* ─── EPISODE CARDS ──────────────────────────────────────────────────────── */
+
+.episode-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ep-card {
+  background: #130d0a;
+  border: 1px solid #2a1e1a;
+  border-radius: 4px;
+  padding: 14px 16px;
+  position: relative;
+  transition: border-color 0.2s;
+  animation: fadeUp 0.35s ease both;
+}
+
+.ep-card:hover {
+  border-color: #4a3020;
+}
+
+.ep-card.top {
+  border-color: #4a3020;
+}
+
+.ep-card:nth-child(1) { animation-delay: 0s; }
+.ep-card:nth-child(2) { animation-delay: 0.07s; }
+.ep-card:nth-child(3) { animation-delay: 0.14s; }
+.ep-card:nth-child(4) { animation-delay: 0.21s; }
+.ep-card:nth-child(5) { animation-delay: 0.28s; }
+
+.best-match {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  background: #2e1a0e;
+  color: #c9a070;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 10px;
+  border: 1px solid #4a3020;
+}
+
+.ep-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ep-id {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: #5a4a40;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.ep-name {
+  color: #c9b8a8;
+  font-size: 14px;
+}
+
+.ep-dots {
+  display: flex;
+  gap: 5px;
+  padding-top: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ep-match-moods {
+  color: #5a4a40;
+  font-size: 11px;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.no-match {
+  color: #6b5a4e;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────────── */
+
+.footer {
+  margin-top: 52px;
+  color: #2e201a;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growBar {
+  from { width: 0 !important; }
+}
+
+.dots {
+  display: inline-block;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
